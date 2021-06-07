@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<!------------------------------------------ 字体--------------------------------- -->
+
+		<!------------------------------------------ 字体--------------------------------- -->
+
+
+<meta charset="UTF-8">
+		<title>Play</title>
+		<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="../css/play.css">
+		<link rel="stylesheet" href="../css/buttons.css" type="text/css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+		<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css'>
+	  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat&display=swap'>
+	  
+		<script src="../js/play.js"></script>
+    </head>
+    <body>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mo-js/0.288.2/mo.min.js'></script>
+		<script src="../js/clickstyle.js"></script>
+		<div id="loading_css">
+		<h1 class="loading_title">Loading</h1>
+		<div class="rainbow-marker-loader"></div>
+		<div id="hide_bg"></div>
+		</div>
+		<div id="container">
+			<button class="button button-3d button-caution" style="position: absolute; left:0; top:0;" id="Player_goback">Back</button>
+			<form onsubmit="event.preventDefault();" role="search" id="searchform" style="position:absolute ;top:0; right:0;">
+				<input id="search" type="search" placeholder="Search..." autofocus required />
+				<button type="submit" id="searchbutton">Go</button>    
+			  </form>
+		<div class="square twitter">
+			<span></span>
+			<span></span>
+			<span></span>
+			<div class="content">
+				<h2>
+					Now Playing...
+				</h2>
+
+				<h3 id="Player_Name"></h3>
+				<h4 id="Player_Singer"></h4>
+				<img src="" id="Player_Img">
+				<audio src=""  id="Player_Audio" ></audio>
+
+
+		<div class="Player_btn">
+
+			<button type="button" id="Player_prev" class="button button-glow button-rounded button-caution">Prev</button>
+			<button type="button" id="Player_play" class="button button-3d button-primary button-rounded">Play</button>
+			<button type="button" id="Player_pause" class="button button-3d button-royal">Pause</button>
+			<button type="button" id="Player_next" class="button button-glow button-rounded button-highlight">Next</button>
+
+		</div>
+				<a href="#" target="_blank" id="content_end_circle" style='font-family: f1649-7df29ca4fa1;'>Hiii,this is Reogrdoe!</a>
+			</div>
+		</div>
+	</div>
+
+
+
+    </body>
+</html>

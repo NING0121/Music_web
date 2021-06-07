@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <base href="./">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
+  <meta name="author" content="Łukasz Holeczek">
+  <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
+  <title>NING Music Player</title>
+  <link href="node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+  <link rel="shortcut icon" href="//s1.music.126.net/style/favicon.ico?v20180823" />
+  <link rel="stylesheet" href="../css/user.css" type="text/css">
+  <link href="vendors/pace-progress/css/pace.min.css" rel="stylesheet">
+  <!-- Global site tag (gtag.js) - Google Analytics-->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
+  <script src="../js/user.js"></script>
+  <style type="text/css">
+    .sidebar .sidebar-nav a:hover {
+      background-color: #a40011;
+    }
+  </style>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    // Shared ID
+    gtag('config', 'UA-118965717-3');
+    // Bootstrap ID
+    gtag('config', 'UA-118965717-5');
+  </script>
+</head>
+
+<body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
+  <!-- 导航栏 -->
+  <header class="app-header navbar" style="background-color:#333;">
+    <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">
+
+    </a>
+    <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <ul class="nav navbar-nav d-md-down-none">
+      <li class="nav-item px-3">
+        <a class="nav-link" href="http:localhost:3000">首页</a>
+      </li>
+      <li class="nav-item px-3">
+        <a class="nav-link" href="#">个人用户</a>
+      </li>
+      <li class="nav-item px-3">
+        <a class="nav-link" href="http:localhost:3000/html/playlist.html">音乐库</a>
+      </li>
+    </ul>
+    <!-- 搜索 -->
+    <!-- <div class="input-group col-md-3" class="nav navbar-nav d-md-down-none" style="margin-top:0px; position: relative;">
+      <input class="nav navbar-nav d-md-down-none" type="text" class="form-control" placeholder="Search……"
+        data-toggle="sidebar-lg-show" />
+      <span class="input-group-btn">
+        <span class="nav navbar-nav d-md-down-none"><button class="btn btn-info btn-search">搜索</button></span>
+      </span>
+
+    </div> -->
+    <form onsubmit="event.preventDefault();" role="search" id="searchform" style="margin-left: 500px;">
+      <input id="search" type="search" placeholder="Search..." autofocus required />
+      <button type="submit" id="searchbutton">Go</button>    
+    </form>
+    <ul class="nav navbar-nav ml-auto">
+      <li class="nav-item d-md-down-none">
+        <a class="nav-link" href="#">
+          <i class="icon-bell">消息</i>
+          <span class="badge badge-pill badge-danger">5</span>
+        </a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          <img class="img-avatar" src="../../images/netease_cloudmusic_180px_1186871_easyicon.net.png" alt="">
+        </a>
+      </li>
+    </ul>
+    <button class="navbar-toggler aside-menu-toggler d-md-down-none" type="button" data-toggle="aside-menu-lg-show">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <button class="navbar-toggler aside-menu-toggler d-lg-none" type="button" data-toggle="aside-menu-show">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </header>
+
+  <div class="app-body">
+    <!-- 边框导航 -->
+    <div class="sidebar">
+      <nav class="sidebar-nav">
+        <ul class="nav" style="background-color:#C20C0C;">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <i class="nav-icon icon-speedometer"></i> 歌单✉️
+              <span class="badge badge-primary">NEW</span>
+            </a>
+          </li>
+          <li class="nav-title">相关</li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="nav-icon icon-drop"></i> 歌手👩</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="nav-icon icon-pencil"></i> 歌曲🎤</a>
+          </li>
+          <li class="nav-title">其他</li>
+          <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#">
+              <i class="nav-icon icon-puzzle"></i> 喜欢的人❤️</a>
+            <ul class="nav-dropdown-items">
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="nav-icon icon-puzzle"></i> B</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="nav-icon icon-puzzle"></i> C</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="nav-icon icon-puzzle"></i> D</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="nav-icon icon-calculator"></i> 热门评论💬
+              <span class="badge badge-primary">HOT</span>
+            </a>
+          </li>
+          <li class="divider"></li>
+          <li class="nav-title">其他</li>
+          <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#">
+              <i class="nav-icon icon-star"></i> 其他</a>
+            <ul class="nav-dropdown-items">
+              <li class="nav-item">
+                <a class="nav-link" href="#" target="_top">
+                  <i class="nav-icon icon-star"></i> 其他</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" target="_top">
+                  <i class="nav-icon icon-star"></i> 其他</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="404.html" target="_top">
+                  <i class="nav-icon icon-star"></i> Error 404</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="500.html" target="_top">
+                  <i class="nav-icon icon-star"></i> Error 500</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item mt-auto">
+            <a class="nav-link nav-link-success" href="#" target="_top">
+              <i class="nav-icon icon-cloud-download"></i>Learn More</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-danger" href="#" target="_top">
+              <i class="nav-icon icon-layers"></i> Try Player
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+    </div>
+
+    <main class="main">
+
+      <div class="container-fluid">
+        <div class="animated fadeIn">
+          <div class="card">
+            <!-- Breadcrumb-->
+            <ol class="breadcrumb" style="font-size: 20px;">
+              <li class="breadcrumb-item"><span class="glyphicon glyphicon-user"></span> 个人中心</li>
+            </ol>
+            <div class="card-body">
+              <div class="panel panel-info">
+                <div class="panel-heading" id="backgrounddiv_pic"
+                  style="background-image: url(https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1880258761,2024473318&fm=26&gp=0.jpg);">
+                  <h3 class="panel-title" style="font-family: Times New Roman, Times, serif;text-align: center;">
+                    <img src="../../images/canvass.png"
+                      width="10%" class="img-circle" alt="img" id="headpic"><br>
+                    <span
+                      style="color: white;font-family: Georgia, 'Times New Roman', Times, serif;font-size: 25px;" id="username">Reogrdoe!</span>
+                  </h3>
+                  <div class="row" style="margin-left: 42%;">
+                    <div class="card text-white bg-danger"
+                      style="width: 80px;height: 60px; text-align: center;margin-top: 2em;">
+                      <div class="card-body pb-0">
+                        <div class="text-value">关注</div>
+                        <div class="text-value" id="follows"></div>
+                      </div>
+                    </div>
+                    <div class="card text-white bg-success"
+                      style="width: 80px;height: 60px; text-align: center;margin-left: 2%;margin-top: 2em;">
+                      <div class="card-body pb-0">
+                        <div class="text-value">粉丝</div>
+                        <div class="text-value" id="followeds"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="col-sm-2 col-md-2">
+                      <div class="thumbnail" style="border-style: none;">
+                        <ul class="nav nav-pills nav-stacked">
+                          <li class="active" style="width: 100%;">
+                            <a href="#" style="text-align: center;">
+                              通知
+                            </a>
+                          </li>
+                          <li style="width: 100%;">
+                            <a href="#">
+                              <span class="badge badge-danger pull-right">20</span>
+                              私信
+                            </a>
+                          </li>
+                          <li style="width: 100%;">
+                            <a href="#">
+                              <span class="badge badge-danger pull-right">99⁺</span>
+                              新增粉丝
+                            </a>
+                          </li>
+                          <li style="width: 100%;">
+                            <a href="#">
+                              <span class="badge badge-danger pull-right">14</span>
+                              官方消息
+                            </a>
+                          </li>
+                          <li style="width: 100%;">
+                            <a href="#">
+                              <span class="badge badge-danger pull-right">99⁺</span>
+                              特别关心
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="container" style="width: 75%;">
+                      <div class="media-body">
+                        <h4 class="media-heading"><span class="glyphicon glyphicon-pencil"
+                            style="font-size: 17px;">个人资料</span>
+                          <small><i> 2019/12/13</i></small></h4>
+                      </div>
+                      <hr>
+                      <div class="media">
+                        <div class="media-left">
+                          <span class="glyphicon glyphicon-qrcode" style="font-size: 77px;">
+                            <br>
+                            <h4 class="media-heading">
+                              <span style="text-align: center;"><a href="#" class="btn btn-secondary" role="button">
+                                  &ensp; 分享二维码
+                                </a></span>
+                            </h4>
+                          </span>
+                        </div>
+                        <div class="media-body">
+                          <p style="font-size:12px;">性别：男<br>出生日期：未填<br>所在地：四川省-成都市
+                            <br>社交网络：新浪微博
+                            <br></p>
+                        </div>
+                      </div>
+                      <div class="clearfix">
+                        <div class="float-left">
+                          <span style="color: gray;">资料完成度：90%</span>
+                        </div>
+                      </div>
+                      <div class="progress progress-xs" style="width:50%;">
+                        <div class="progress-bar bg-secondary" role="progressbar" style="width: 90%" aria-valuenow="90"
+                          aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <div class="caption" style="text-align: left;">
+                        <p>
+                          <a href="#" class="btn btn-primary" role="button"
+                            style="font-size: 14px;font-family: Times New Roman, Times, serif;"> 编辑个人资料</a>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.row-->
+        <div class="card">
+          <div class="card-body">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><strong style="font-size: 20px;">
+                  <span class="glyphicon glyphicon-headphones"></span> 听歌排行</strong></li>
+            </ol>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <table class="table table-responsive-sm table-hover table-outline mb-0">
+                    <thead class="thead-light">
+                      <tr>
+                        <th class="text-center">
+                          <i class="icon-people"></i>
+                        </th>
+                        <th class="text-center">歌曲🎤</th>
+                        <th class="text-center">歌手👨</th>
+                        <th class="text-center">专辑💽</th>
+                        <th class="text-center">次数⌚️</th>
+                        <th class="text-center"></th>
+                      </tr>
+                    </thead>
+                    <tbody id="historylist_body">
+                      <!-- <tr>
+                        <td>
+                          <div class="avatar" style="text-align: center;">
+                            <span class="glyphicon glyphicon-play-circle" style="font-size: 24px;"></span>
+                          </div>
+                        </td>
+                        <td class="text-center">
+                          <div>从前</div>
+                        </td>
+
+                        <td class="text-center">
+                          <div>董真/姚扬</div>
+                        </td>
+                        <td class="text-center">
+                          <div>《从前有座灵剑山》电视剧片尾曲</div>
+                        </td>
+                        <td class="text-center">
+                          <strong><span class="glyphicon glyphicon-headphones"></span>45</strong>
+                        </td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="avatar" style="text-align: center;">
+                            <span class="glyphicon glyphicon-play-circle" style="font-size: 24px;"></span>
+                          </div>
+                        </td>
+                        <td class="text-center">
+                          <div>人间纵我</div>
+                        </td>
+
+                        <td class="text-center">
+                          <div>吾恩/朱强</div>
+                        </td>
+                        <td class="text-center">
+                          <div>《魔道祖师》推广曲</div>
+                        </td>
+                        <td class="text-center">
+                          <strong><span class="glyphicon glyphicon-headphones"></span>22</strong>
+                        </td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="avatar" style="text-align: center;">
+                            <span class="glyphicon glyphicon-play-circle" style="font-size: 24px;"></span>
+                          </div>
+                        </td>
+                        <td class="text-center">
+                          <div>花凋一</div>
+                        </td>
+
+                        <td class="text-center">
+                          <div>赵景旭</div>
+                        </td>
+                        <td class="text-center">
+                          <div>花凋demo集</div>
+                        </td>
+                        <td class="text-center">
+                          <strong><span class="glyphicon glyphicon-headphones"></span>12</strong>
+                        </td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="avatar" style="text-align: center;">
+                            <span class="glyphicon glyphicon-play-circle" style="font-size: 24px;"></span>
+                          </div>
+                        </td>
+                        <td class="text-center">
+                          <div>易燃易爆炸</div>
+                        </td>
+
+                        <td class="text-center">
+                          <div>陈粒</div>
+                        </td>
+                        <td class="text-center">
+                          <div>如也</div>
+                        </td>
+                        <td class="text-center">
+                          <strong><span class="glyphicon glyphicon-headphones"></span>02</strong>
+                        </td>
+                        <td></td>
+                      </tr> -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><strong style="font-size: 20px;">
+                  <span class="glyphicon glyphicon-edit"></span> 我创建的歌单™</strong></li>
+            </ol>
+            <div class="row" id="User_playlist">
+                <!-- <div class="col-sm-6 col-lg-3">
+                    <div class="card text-white bg-info" 
+                    style="background-image: url(https://dss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1131798620,291942892&fm=26&gp=0.jpg);">
+                      <div class="card-body pb-0">
+                        <div class="btn-group float-right">
+                          <button class="btn btn-transparent dropdown-toggle p-0" type="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <i class="icon-settings"></i>
+                          </button>
+                          <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="#">了解详情</a>
+                            <a class="dropdown-item" href="#">收藏</a>
+    
+                          </div>
+                        </div>
+                        <div class="text-value">歌单1</div>
+                        <div>Members online</div>
+                      </div>
+                      <div class="chart-wrapper mt-3" style="height:70px;">
+                        <canvas class="chart" id="card-chart3" height="70"></canvas>
+                      </div>
+                    </div>
+                  </div> -->
+              <!-- /.col-->
+              <!-- <div class="col-sm-6 col-lg-3">
+                <div class="card text-white bg-info" 
+                style="background-image: url(https://dss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1131798620,291942892&fm=26&gp=0.jpg);">
+                  <div class="card-body pb-0">
+                    <div class="btn-group float-right">
+                      <button class="btn btn-transparent dropdown-toggle p-0" type="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <i class="icon-settings"></i>
+                      </button>
+                      <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="#">了解详情</a>
+                        <a class="dropdown-item" href="#">收藏</a>
+
+                      </div>
+                    </div>
+                    <div class="text-value">歌单2</div>
+                    <div>Members online</div>
+                  </div>
+                  <div class="chart-wrapper mt-3" style="height:70px;">
+                    <canvas class="chart" id="card-chart3" height="70"></canvas>
+                  </div>
+                </div>
+              </div> -->
+              <!-- /.col-->
+              <!-- <div class="col-sm-6 col-lg-3">
+                <div class="card text-white bg-warning"
+                style="background-image: url(https://dss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1131798620,291942892&fm=26&gp=0.jpg);">
+                  <div class="card-body pb-0">
+                    <div class="btn-group float-right">
+                      <button class="btn btn-transparent dropdown-toggle p-0" type="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <i class="icon-settings"></i>
+                      </button>
+                      <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="#">了解详情</a>
+                        <a class="dropdown-item" href="#">收藏</a>
+
+                      </div>
+                    </div>
+                    <div class="text-value">歌单3</div>
+                    <div>Members online</div>
+                  </div>
+                  <div class="chart-wrapper mt-3" style="height:70px;">
+                    <canvas class="chart" id="card-chart3" height="70"></canvas>
+                  </div>
+                </div>
+              </div> -->
+              <!-- /.col-->
+              <!-- <div class="col-sm-6 col-lg-3">
+                <div class="card text-white bg-danger"
+                style="background-image: url(https://dss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1131798620,291942892&fm=26&gp=0.jpg);">
+                  <div class="card-body pb-0">
+                    <div class="btn-group float-right">
+                      <button class="btn btn-transparent dropdown-toggle p-0" type="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <i class="icon-settings"></i>
+                      </button>
+                      <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="#">了解详情</a>
+                        <a class="dropdown-item" href="#">收藏</a>
+
+                      </div>
+                    </div>
+                    <div class="text-value">歌单4</div>
+                    <div>Members online</div>
+                  </div>
+                  <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
+                    <canvas class="chart" id="card-chart4" height="70"></canvas>
+                  </div>
+                </div>
+              </div> -->
+              <!-- /.col -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="app-footer">
+    <div>
+      <a href="首页.html">Music-scu</a>
+      <span>&copy; 2018级 网络空间安全学院</span>
+    </div>
+    <div class="ml-auto">
+      <span>Powered by</span>
+      <a href="首页.html">刘育小组</a>
+    </div>
+  </footer>
+  <!-- Plugins and scripts required by this view-->
+  <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <base href="./">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>NING Music Player</title>
+  <link href="node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link href="../css/search.css" rel="stylesheet">
+  <script src="../js/search.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics-->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
+
+
+   <!--------------------------------------------鼠标点击动画----------------------------------------------------------------------->
+
+   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css'>
+   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat&display=swap'>
+   <script src='https://cdnjs.cloudflare.com/ajax/libs/mo-js/0.288.2/mo.min.js'></script>
+   <!--------------------------------------------鼠标点击动画----------------------------------------------------------------------->
+ 
+  <style type="text/css">
+    .sidebar .sidebar-nav a:hover {
+      background-color: #a40011;
+    }
+  </style>
+</head>
+
+
+
+<body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
+  <!--------------------------------------------鼠标点击动画----------------------------------------------------------------------->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mo-js/0.288.2/mo.min.js'></script>
+<script src="../js/clickstyle.js"></script>
+<!--------------------------------------------鼠标点击动画----------------------------------------------------------------------->
+
+  <header class="app-header navbar" style="background-color:#333;">
+    <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">
+      <img class="navbar-brand-full" src="../../images/netease_cloudmusic_180px_1186871_easyicon.net.png" width="40" height="40"
+        alt="net Logo">
+      <img class="navbar-brand-minimized" src="" width="30" height="30" alt="net Logo">
+    </a>
+    <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <ul class="nav navbar-nav d-md-down-none">
+      <li class="nav-item px-3">
+        <a class="nav-link" href="#">首页</a>
+      </li>
+      <li class="nav-item px-3">
+        <a class="nav-link" href="#">个人用户</a>
+      </li>
+      <li class="nav-item px-3">
+        <a class="nav-link" href="#">音乐库</a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav ml-auto">
+      <li class="nav-item d-md-down-none">
+        <a class="nav-link" href="#">
+          <i class="icon-bell">消息</i>
+          <span class="badge badge-pill badge-danger">5</span>
+        </a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          <img class="img-avatar" src="../../images/netease_cloudmusic_180px_1186871_easyicon.net.png" alt="">
+        </a>
+      </li>
+    </ul>
+    <button class="navbar-toggler aside-menu-toggler d-md-down-none" type="button" data-toggle="aside-menu-lg-show">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <button class="navbar-toggler aside-menu-toggler d-lg-none" type="button" data-toggle="aside-menu-show">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </header>
+  <div class="app-body">
+    <div class="sidebar">
+      <nav class="sidebar-nav">
+        <ul class="nav" style="background-color:#C20C0C;">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <i class="nav-icon icon-speedometer"></i> 发现🍳
+              <span class="badge badge-primary">NEW</span>
+            </a>
+          </li>
+          <li class="nav-title">榜单</li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:3000/html/ranklist.html?idx=0">
+              <i class="nav-icon icon-drop"></i> 新歌榜📄</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:3000/html/ranklist.html?idx=6">
+              <i class="nav-icon icon-pencil"></i> Billboard榜📄</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:3000/html/ranklist.html?idx=1">
+              <i class="nav-icon icon-pencil"></i> 热歌榜📄</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:3000/html/ranklist.html?idx=8">
+              <i class="nav-icon icon-pencil"></i> iTunes榜📄</a>
+          </li>
+          <li class="nav-title">推荐</li>
+          <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#">
+              <i class="nav-icon icon-puzzle"></i> xxx</a>
+          </li>
+        </ul>
+      </nav>
+      <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+    </div>
+    <main class="main">
+      <!-- Breadcrumb-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">首页</li>
+        <li class="breadcrumb-item">
+          <a href="#">搜索结果</a>
+        </li>
+        
+      </ol>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="card" style="width: 100%; display: flex; flex-direction: row;">
+           <div class="img" style="margin: 15px;"><img src="" class="img-thumbnail" id="search_result_img" alt="..." width="200px" height="200px"></div> 
+            <div class="card-body">
+              <h5 class="card-title" id="search_result_title">          </h5>
+              <p class="card-text" id="search_result_description">      </p>
+              <a href="#" class="btn btn-success">download</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.row-->
+      <div class="container-fluid">
+        <div class="row">
+          <div class="card" style="width: 100%;">
+            <table class="table table-responsive-sm table-hover table-outline mb-0">
+              <thead class="thead-light">
+                <tr>
+                  <th class="text-center">
+                    <i class="icon-people"></i>
+                  </th>
+                  <th>歌曲🎤/歌手👨</th>
+                  <th class="text-center"></th>
+                  <th>标签🏷️</th>
+                  <th class="text-center">专辑💽</th>
+                  <th>时长⌚️</th>
+                </tr>
+              </thead>
+              <tbody id="search_results">
+                <!-- <tr><td class="text-center"><div class="avatar"><img class="img-avatar" src="" alt="singer1">
+<span class="avatar-status badge-success"></span></div></td><td>
+<div>afterjourney</div><div class="small text-muted"><span>New</span> | Registered: Jan 1, 2015</div></td>
+<td class="text-center"><i class="flag-icon flag-icon-us h4 mb-0" id="us" title="us"></i></td><td><div class="clearfix"><div class="float-left">
+<strong>50%</strong></div><div class="float-right"><small class="text-muted">Jun 11, 2015 - Jul 10, 2015</small>
+</div></div><div class="progress progress-xs"><div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+</div></td><td class="text-center"><i class="fa fa-cc-mastercard" style="font-size:24px"></i>
+</td><td><div class="small text-muted">Last login</div><strong>10 sec ago</strong></td></tr> -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!-- /.col-->
+  </div>
+  <!-- /.row-->
+  </div>
+  </div>
+  </main>
+  <footer class="app-footer">
+    <div>
+      <a href="首页.html">Music-scu</a>
+      <span>&copy; 2018级 网络空间安全学院</span>
+    </div>
+    <div class="ml-auto">
+      <span>Powered by</span>
+      <a href="首页.html">刘育小组</a>
+    </div>
+  </footer>
+  <!-- Plugins and scripts required by this view-->
+  <script src="js/main.js"></script>
+</body>
+
+</html>

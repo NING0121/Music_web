@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>music-index</title>
+    <link href="node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <link rel="shortcut icon" href="//s1.music.126.net/style/favicon.ico?v20180823" />
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="./css/index.css" rel="stylesheet">
+    <!-- Global site tag (gtag.js) - Google Analytics-->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
+    <script src="./js/index.js"></script>
+    <!--------------------------------------------鼠标点击动画----------------------------------------------------------------------->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat&display=swap'>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mo-js/0.288.2/mo.min.js'></script>
+    <!--------------------------------------------鼠标点击动画----------------------------------------------------------------------->
+
+    <style type="text/css">
+        .sidebar .sidebar-nav a:hover {
+            background-color: #a40011;
+        }
+    </style>
+</head>
+
+<body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
+    <!--------------------------------------------鼠标点击动画----------------------------------------------------------------------->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mo-js/0.288.2/mo.min.js'></script>
+    <script src="./js/clickstyle.js"></script>
+    <!--------------------------------------------鼠标点击动画----------------------------------------------------------------------->
+
+
+    <header class="app-header navbar" style="background-color:#333;">
+        <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
+            <span class="navbar-toggler-icon" id="topbutton"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+            <img class="navbar-brand-full" src="../images/netease_cloudmusic_180px_1186871_easyicon.net.png" width="40"
+                height="40" alt="net Logo">
+            <img class="navbar-brand-minimized" src="" width="30" height="30" alt="net Logo">
+        </a>
+        <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <ul class="nav navbar-nav d-md-down-none">
+            <li class="nav-item px-3">
+                <a class="nav-link" href="http://localhost:3000">首页</a>
+            </li>
+            <li class="nav-item px-3">
+                <a class="nav-link" href="http://localhost:3000/html/playlist.html">个人用户</a>
+            </li>
+            <li class="nav-item px-3">
+                <a class="nav-link" href="http://localhost:3000/html/playlist.html">音乐库</a>
+            </li>
+        </ul>
+        <form onsubmit="event.preventDefault();" role="search"
+                     id="searchform" style="margin-left: 500px;">
+            <input id="search" type="search" placeholder="Search..." autofocus required />
+            <button type="submit" id="searchbutton">Go</button>
+        </form>
+        <ul class="nav navbar-nav ml-auto">
+
+            <!-- <li class="nav-item d-md-down-none">
+                <a class="nav-link" href="#">
+
+                    <input type="text" value="&ensp;&ensp;Search 🔍"
+                        onFocus="if(value=='&ensp;&ensp;Search 🔍') {value=''}"
+                        onBlur="if(value==''){value='&ensp;&ensp;Search 🔍'}" , style="border-radius: 1em;">
+                </a>
+            </li> -->
+            <li class="nav-item d-md-down-none">
+                <a class="nav-link" href="#">
+                    <i class="icon-bell">消息</i>
+                    <span class="badge badge-pill badge-danger">3</span>
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                    aria-expanded="false">
+                    <img class="img-avatar" src="../netease_cloudmusic_180px_1186871_easyicon.net.png" alt="">
+                </a>
+            </li>
+        </ul>
+        <button class="navbar-toggler aside-menu-toggler d-md-down-none" type="button" data-toggle="aside-menu-lg-show">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </header>
+    <div class="app-body">
+        <div class="sidebar">
+            <nav class="sidebar-nav">
+                <ul class="nav" style="background-color:#C20C0C;">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="nav-icon icon-speedometer"></i> 歌单&ensp;✉️
+                            <span class="badge badge-primary">NEW</span>
+                        </a>
+                    </li>
+                    <li class="nav-title">相关&ensp;<i class="fa fa-align-justify" aria-hidden="true"></i></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="nav-icon icon-drop"></i> 音乐&ensp;🎵</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="nav-icon icon-pencil"></i> 歌曲&ensp;🎤</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link  href=" #">
+                            <i class="nav-icon icon-puzzle"></i> 电台&ensp;📢</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="nav-icon icon-calculator"></i> M&ensp;V&ensp;📺
+
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="nav-icon icon-calculator"></i> 榜单&ensp;📄
+                            <span class="badge badge-primary">HOT</span>
+                        </a>
+                    </li>
+                    <li class="nav-title">我的&ensp;<i class="fa fa-thumbs-up" aria-hidden="true"></i> </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="nav-icon icon-calculator"></i> 我的下载&ensp;⏬
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="nav-icon icon-calculator"></i> 我的收藏&ensp;📦
+                        </a>
+                    </li>
+
+                    <li class="nav-item mt-auto">
+                        <a class="nav-link nav-link-success" href="#" target="_top" data-toggle="modal"
+                            data-target="#myModal">
+                            <i class="nav-icon icon-cloud-download"></i>Learn More</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-danger" href="#" target="_top">
+                            <i class="nav-icon icon-layers"></i> Try Player
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- 模态框头部 -->
+                <div class="modal-header">
+                    <h4 class="modal-title">小组分工情况：</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- 模态框主体 -->
+                <div class="modal-body">
+                    后端布局：张贺 刘育 <br>
+                    页面布局：王楠楠 彭陈
+                </div>
+
+                <!-- 模态框底部 -->
+                <div class="modal-footer">
+                    <p>Power by web小组冲！💪</p>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <main class="main" style="background-color:#c8ced3;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div id="demo" class="carousel slide" data-ride="carousel" id="experience">
+                        <!-- 轮播图片 -->
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img
+                                    src="http://p1.music.126.net/EME4L6aKVYYbZGp4mzu0jA==/109951164535626001.jpg?imageView&quality=89">
+                                <div class="carousel-caption">
+                                    <!-- <h3>第一张图片描述标题</h3>
+                                    <p>描述文字!</p> -->
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img
+                                    src="http://p1.music.126.net/qGr_MRYkrUwOs1gL7EAy8A==/109951164535889278.jpg?imageView&quality=89">
+                                <div class="carousel-caption">
+                                    <!-- <h3>第二张图片描述标题</h3>
+                                    <p>描述文字!</p> -->
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img
+                                    src="http://p1.music.126.net/EAXRTSqOFBs7e7vokO6KMA==/109951164535591363.jpg?imageView&quality=89">
+                                <div class="carousel-caption">
+                                    <!-- <h3>第二张图片描述标题</h3>
+                                    <p>描述文字!</p> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 左右切换按钮 -->
+                        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#demo" data-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div><br>
+        <div class="container-fluid">
+            <div class="row">
+                <nav class="navbar navbar-expand-sm bg-light navbar-light col-lg-12"
+                    style="border-top-left-radius: 1em; border-top-right-radius: 1em;">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <strong style="font-size: large;">热门推荐&ensp;🔥</strong>
+                        </li>
+                        <li class="nav-item" style="margin-top: 5px;">
+                            <p>华语&ensp;|&ensp;流行&ensp;|&ensp;摇滚&ensp;|&ensp;民谣&ensp;|&ensp;电子</p>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="row" style="background-color: white;" id="Hotlist_body">
+                <!-- <div class="col-lg-3">
+                    <div class="card" style="margin-top: 10px;">
+                        <img class="card-img-top"
+                            src="http://p3.music.126.net/3Rwy7zVgZcp3u6w6ayBbGg==/109951164450906513.jpg "
+                            alt="Card image" style="width:100%">
+                        <div class="card-body">
+                            <h4 class="card-title">song</h4>
+                            <p class="card-text">some details: Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Nulla, cupiditate.</p>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- <div class="col-lg-3">
+                    <div class="card" style="margin-top: 10px;">
+                        <img class="card-img-top"
+                            src="http://p3.music.126.net/3Rwy7zVgZcp3u6w6ayBbGg==/109951164450906513.jpg "
+                            alt="Card image" style="width:100%">
+                        <div class="card-body">
+                            <h4 class="card-title">song</h4>
+                            <p class="card-text">some details: Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Nulla, cupiditate.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="card" style="margin-top: 10px;">
+                        <img class="card-img-top"
+                            src="http://p3.music.126.net/3Rwy7zVgZcp3u6w6ayBbGg==/109951164450906513.jpg "
+                            alt="Card image" style="width:100%">
+                        <div class="card-body">
+                            <h4 class="card-title">song</h4>
+                            <p class="card-text">some details: Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Nulla, cupiditate.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="card" style="margin-top: 10px;">
+                        <img class="card-img-top"
+                            src="http://p3.music.126.net/3Rwy7zVgZcp3u6w6ayBbGg==/109951164450906513.jpg "
+                            alt="Card image" style="width:100%">
+                        <div class="card-body">
+                            <h4 class="card-title">song</h4>
+                            <p class="card-text">some details: Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Nulla, cupiditate.</p>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            </div>
+            <div class="contain" style="margin:0 15px; background-color: white; color:white;">
+                <div class="progress" style="margin:0 10px;">
+                    <div class="progress-bar bg-danger progress-bar-striped" style="width:100%"></div>
+                </div>
+                <div class="song-list row">
+                    <div class="col" style="text-align: center;">
+                        <div class="card" style="background:url(../images/bg_index_top1.png);margin:10px 8px;">
+                            <h4>巅峰榜</h4>
+                            <h3><strong>流行指数</strong></h3>
+                            <ul class="song-list">
+                                <li class="link">
+
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col" style="text-align: center;">
+                        <div class="card" style="background:url(../images/bg_index_top2.png);margin:10px 8px;">
+                            <h4>巅峰榜</h4>
+                            <h3><strong>热歌</strong></h3>
+
+                        </div>
+                    </div>
+                    <div class="col" style="text-align: center;">
+                        <div class="card" style="background:url(../images/bg_index_top3.png);margin:10px 8px;">
+                            <h4>巅峰榜</h4>
+                            <h3><strong>新歌</strong></h3>
+                        </div>
+                    </div>
+                    <div class="col" style="text-align: center;">
+                        <div class="card" style="background:url(../images/bg_index_top4.png);margin:10px 8px;">
+                            <h4>巅峰榜</h4>
+                            <h3><strong>欧美</strong></h3>
+                        </div>
+                    </div>
+                    <div class="col" style="text-align: center;">
+                        <div class="card" style="background:url('../images/bg_index_top5.png'); margin:10px 8px;">
+                            <h4>巅峰榜</h4>
+                            <h3><strong>韩国</strong></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <footer class="app-footer">
+        <div>
+            <a href="首页.html">Music-scu</a>
+            <span>&copy; 2018级 网络空间安全学院</span>
+        </div>
+        <div class="ml-auto">
+            <span>Powered by</span>
+            <a href="首页.html">刘育小组</a>
+        </div>
+    </footer>
+</body>

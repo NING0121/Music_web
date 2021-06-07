@@ -1,0 +1,457 @@
+
+.box{
+    margin:30px auto;
+    width:800px;
+    height:230px;
+    background:#060;
+    color:white;
+    font-size:20px;}
+#boxr{
+    position:fixed; 
+    height: auto; 
+    width: 10%;        
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    
+}     
+#readNav{
+    position: fixed;  
+            width: 10%; 
+            margin-top: 100px;   
+            display: flex;
+            border-radius: 0.1em;
+            flex-direction: row;
+            flex-basis: 10%;
+            right: 2px;
+            font-size: 15px;
+            justify-content: space-between;
+            height: 85%;
+            flex-wrap: wrap;
+    text-align:center;
+    padding:5px;}
+
+ 
+.goTo{
+    position:fixed;   /*当position设置为fixed的时候，元素的位置是相对浏览器窗口的而不是其父容器*/
+    right:40px;
+    bottom:300px;}
+.toTop,.toBottom{
+    width:44px;
+    word-break:break-all;
+    border:1px solid gray;
+    border-radius:40px;
+    cursor:pointer;
+    border:outset;}
+
+.hbox2{
+    width:800px;
+    height:260px;
+    margin:auto;
+    overflow:hidden;
+    position:relative;}
+.hbox2 p{
+    text-align:center;}
+.picBox2{
+    margin:0px;
+    padding:0px;
+    list-style:none;
+    width:1500px;}     
+    /* <!--此处很关键，在实现无疑轮播时这个宽度一定要比显示图片数量+1的宽度宽--> */
+.picBox:hover,.picBox2:hover{
+    cursor:pointer;}
+.picBox li,.picBox2 li{
+    float:left;}
+.picBox img,.picBox2 img{ 
+    margin: 10px;
+    width:200px;
+    height:240px;}
+
+        .carousel-inner::before {
+            content: "";
+            /*-webkit-filter: opacity(50%);  
+    		filter: opacity(50%); */
+            opacity: 1;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            /* 一定要设置position:absolute,这样才能设置z-index，让背景处于内容的下一层 */
+            top: 0px;
+            left: 0px;
+        }
+
+        /* Make the image fully responsive */
+        .carousel-inner img {
+            opacity: 1;
+            width: 100%;
+            height: 100%;
+        }
+
+        #searchdiv{
+            min-width: 7rem;
+            min-height: 6rem;
+        }      
+  
+        form#searchform {
+          position: relative;
+            width: 30rem;
+          background: var(--color-brand);
+          border-radius: var(--rad);
+          /* -webkit-border-radius: var(--rad);
+          -moz-border-radius: var(--rad);
+          -ms-border-radius: var(--rad);
+          -o-border-radius: var(--rad); */
+          float: right;
+  }
+  :root{
+    --rad: .7rem;
+    --dur: .3s;
+    --color-dark: #2f2f2f;
+    --color-light: #fff;
+    --color-brand: #57bd84;
+    --font-fam: 'Lato', sans-serif;
+    --height: 5rem;
+    --btn-width: 6rem;
+    --bez: cubic-bezier(0, 0, 0.43, 1.49);
+  }
+  
+
+    html{ 
+        height: 100%;width: 100%;
+        padding: 0; 
+    }
+
+    body{
+        background-image:url('../images/redbackpaper.jpg');
+        background-attachment:fixed;
+        background-position: center center;
+        background-repeat: no-repeat;
+        position: absolute;
+        background-size: cover;
+        min-height: 100%;
+        min-width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    *, *::before, *::after {
+        box-sizing: inherit;
+      }
+      #searchdiv{
+        min-width: 7rem;
+        min-height: 6rem;
+    } 
+      
+        input#search, button#searchbutton {
+          height: var(--height);
+          font-family: var(--font-fam);
+          border: 0;
+          color: var(--color-dark);
+          font-size: 1.8rem;
+        }
+        
+        input#search[type="search"] {
+          outline: 0;
+          width: 100%;
+          max-height: 100%;
+          background: var(--color-light);
+          padding: 0 1.6rem;
+          border-radius: var(--rad);
+          -webkit-appearance: none;
+             -moz-appearance: none;
+                  appearance: none;
+          transition: all var(--dur) var(--bez);
+          transition-property: width, border-radius;
+          z-index: 1;
+          position: relative;
+        }
+        
+        button#searchbutton{
+          display: none;
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: var(--btn-width);
+          max-height: 100%;
+          font-weight: bold;
+          background: var(--color-brand);
+          border-radius: 0 var(--rad) var(--rad) 0;
+        }
+        
+        input#search:not(:placeholder-shown) {
+          border-radius: var(--rad) 0 0 var(--rad);
+          width: calc(100% - var(--btn-width));
+        }
+        input#search:not(:placeholder-shown) + button#searchbutton {
+          display: block;
+        }
+
+        a:link{ 
+            color:white; 
+            text-decoration: none; 
+            }
+        
+        a:visited{ 
+            color: white; 
+            text-decoration: none; 
+            }
+        
+        
+        a:hover{ 
+            color: rgb(99, 90, 90); 
+            text-decoration: underline; 
+            }
+
+        .whole{
+            display: row;
+            
+            background-color: white;
+                height: 100%;
+                width: 100%;
+            }
+    
+        #headline{
+            background-color:  rgb(153, 1, 1);
+    
+            width:100%;
+            height: auto;
+        }
+        #linewhole{
+            /* display: flex; */
+            height: 50px;
+            padding: 50px;
+            /* background-color: rgb(32, 32, 32); */
+            background-color:  rgb(153, 1, 1);
+        }
+        #linehead{
+            padding: 30px;
+            height: auto;
+            width: 10%;
+            font-size: 15px;
+            color: white;
+            text-align: center;
+            float: left;
+            flex-shrink: 1;
+    
+        }
+        .topline{
+            padding-top: 30px;
+            height: auto;
+            width: 10%;
+            font-size: 15px;
+            color: white;
+            text-align: center;
+            float: left;    
+            flex-shrink: 2;
+        }
+        .sideline{  
+            position: fixed;  
+            width: 10%; 
+            margin-top: 100px;   
+            display: flex;
+            border-radius: 0.1em;
+            flex-direction: row;
+            flex-basis: 10%;
+            font-size: 15px;
+            bottom: 50px;;
+            justify-content: space-between;
+            height: 85%;
+            flex-wrap: wrap;
+            align-items: center;  
+            min-height: 10em;
+            float: left;
+            z-index: 2;
+            color: rgb(190, 189, 189);
+            background-color:black;
+            box-sizing:border-box;  
+            
+        }
+        
+        .sideline p{
+            line-height: 25px;
+            margin-left: 10px;
+        }
+        
+        .sidelist{
+            min-height:auto;
+        
+            /* overflow-y:scroll; */
+            overflow-x: hidden;
+        }
+        .lineblocks{
+            min-height: 10em;
+            width: 12em;
+            margin-top: 20px;
+        }
+        .sideline>.sidelist>.lineblocks>.sideline_title{
+            font-size: 12px;
+            padding-left:10px;
+            line-height:2rem;
+            color:#8a8a8c;
+
+        }
+        .sideline>.sidelist>.lineblocks>.title_groups{
+            position:absolute;
+            top:50%;
+            right:15px;
+            -webkit-transform:translate(0,-50%);
+            transform:translate(0,-50%);
+            -moz-transform:translate(0,-50%);
+            -ms-transform:translate(0,-50%);
+            -o-transform:translate(0,-50%);
+        }
+        .sideline>.sidelist>.title_groups>.listchoice{
+            margin:0 3px;
+        }
+        .sideline>.sidelist>.title_groups>.listchoice>.fa{
+            font-size:0.8rem;
+        }
+        .listchoice{
+            /* padding-left:20px; */
+            line-height:2rem;
+            border-left:3px solid transparent;
+            color:#656567;
+            cursor:pointer;
+            padding-top: 10px;
+        }
+        .blocks>.listchoice:hover{
+            color: white;
+        }
+        .listchoice:active{
+            border-color:red;
+            background-color: rgb(77, 76, 76);
+            color: white;
+        }
+
+        .intro {
+            border-radius: 0.1em;
+            margin-left: 10%;
+            margin-right: 10%;
+            display: flex;
+            margin-top: 100px;
+            flex-direction: row;
+            flex-basis: 80%;
+            justify-content: space-between;
+            height: auto;
+        }
+        .intro1{
+            border-radius: 0.1em;
+            display: flex;
+            flex-direction: row;
+            flex-basis: 80%;
+            justify-content: space-between;
+            height: auto;
+        }
+
+
+        .hotIntro {
+            border-radius: 0.1em;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            height: auto;
+            flex-wrap: wrap;
+        }
+        #zx{
+            border-radius: 0.1em;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slidebar {
+            border-radius: 0.1em;
+            background-color: white;
+            width: 30%;
+            border-right-style: groove;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            height: auto;
+            flex-wrap: wrap;
+            font-size: 15px;
+        }
+
+        #hot {
+            border-radius: 0.1em;
+            border-style: none;
+            background-color: white;
+            display: flex;
+            width: 100%;
+            height: auto;
+            flex-direction: row;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        #box1 {
+            border-radius: 0.1em;
+            float: left;
+            margin-top: 13px;
+            color: gray;
+            flex-basis: 60%;
+            font-size: 15px;
+        }
+
+        #box2 {
+            border-radius: 0.1em;
+            float: right;
+            margin-top: 13px;
+            color: gray;
+            flex-basis: 10%;
+            font-size: 15px;
+        }
+
+        #Insong {
+            border-radius: 0.1em;
+            width: 100%;
+            height: auto;
+            background-color: white;
+            clear: both;
+        }
+
+        #gedan {
+            border-radius: 0.1em;
+            width: 25%;
+            height: auto;
+            float: left;
+            text-align: center;
+            background-color: white;
+        }
+
+        #gedan1 {
+            width: 18%;
+            height: auto;
+            float: left;
+            text-align: center;
+            background-color: white;
+        }
+
+        .hd1 {
+            background: #eee;
+            padding: 10px 0;
+            white-space: nowrap;
+            /*文本不会换行，文本会在在同一行上继续*/
+            overflow-y: auto;
+            /*可滑动*/
+        }
+
+        /*自定义滚动条的伪对象选择器, CSS 可以隐藏滚动条*/
+        /*.box::-webkit-scrollbar{
+    display: none;
+}*/
+        .hd2 {
+            width: 49%;
+            margin-left: 3%;
+            height: 100px;
+            background: #fff;
+            display: inline-block;
+            /*行内块元素*/
+        }
+
+        #sbox {
+            background-color: whitesmoke;
+            margin: 10%;
+            flex-basis: 80%;
+        }

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>推荐</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+    <link rel="stylesheet" href=".\css\play-list-style.css" type="text/css">
+    <link rel="stylesheet" href=".\css\tuijian.css" type="text/css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="./js/index.js"></script>
+    <script>
+        var cot = 0;//设置一个计数器，初始值为0；作用是用来监听点击切换的时候哪一个图片应该隐藏或者显示
+        function nex() {
+            if (cot <= 2) {
+                $('.imgs img').eq(cot).animate({ 'margin-left': '-305px' }, 500);
+                cot++;
+            }
+        }
+        function pre() {
+            if (cot > 0) {
+                cot--;
+                $('.imgs img').eq(cot).animate({ 'margin-left': '0' }, 500);
+            }
+        }
+    </script>
+    <script>
+        $(function () {
+            // <!--第二种图片轮播：无缝轮播-->
+            // <!--这种无缝轮播可以通过设置animate动画播放速度值和setInterval中的函数调用时间间隔实现间隔无缝轮播-->
+            function rollTwo() {
+                $(".picBox2").animate({ marginLeft: "-200px" }, 2000, "linear", function () {
+                    $(".picBox2").css({ marginLeft: "0px" });
+                    $(".picBox2 li:first").remove().clone(true).appendTo(".picBox2");
+                })
+            }
+            var startRollTwo = setInterval(rollTwo, 2000);
+            // <!--鼠标移入停止移出继续-->
+            $(".picBox2").hover(function () {
+                $(".picBox2").stop();
+                clearInterval(startRollTwo);
+            }, function () {
+                startRollTwo = setInterval(rollTwo, 2000);
+            });
+
+        });
+
+    </script>
+</head>
+ 
+<body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
+    <!-- 导航栏 -->
+    <span class="glyphicon glyphicon-film">
+    <header class="app-header navbar" style="background-color:#c20c0c;height: 100px;opacity: 0.99;">
+            <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+              <img class="navbar-brand-full" src="https://www.easyicon.net/api/resizeApi.php?id=1222636&size=128"
+                width="80" height="60" alt="net Logo">
+              <img class="navbar-brand-minimized" src=""
+                width="30" height="30" alt="net Logo">
+            </a>
+            <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
+            </button>
+            <ul class="nav navbar-nav d-md-down-none">
+              <li class="nav-item px-5">
+                <a class="nav-link" style="color: white;font-size: 17px;" href="#">首页</a>
+              </li>
+              <li class="nav-item px-5">
+                <a class="nav-link" style="color: white;font-size: 17px;" href="#">个人用户</a>
+              </li>
+              <li class="nav-item px-5">
+                <a class="nav-link" style="color: white;font-size: 17px;" href="javascript:void(0)" id="jk_songslist">音乐库</a>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav ml-auto">
+              <li class="nav-item d-md-down-none">
+                <a class="nav-link" href="#">
+                  <i class="icon-bell" style="color: white;font-size: 17px;">消息</i>
+                  <span class="badge badge-pill badge-danger">5</span>
+                </a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                  <img class="img-avatar" src="../netease_cloudmusic_180px_1186871_easyicon.net.png" alt="">
+                </a>
+              </li>
+            </ul>
+            <button class="navbar-toggler aside-menu-toggler d-md-down-none" type="button" data-toggle="aside-menu-lg-show">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <button class="navbar-toggler aside-menu-toggler d-lg-none" type="button" data-toggle="aside-menu-show">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </header>
+          
+    <div class="whole">
+        <div class="sideline">
+            <div class="sidelist" id="sidelist">
+                <div class="lineblocks" id="lineblock1">
+                    <p class="sideline_title">推荐</p>
+                    <div id="block1" class="blocks">
+                        <p id="fx_music" class="listchoice fx_music"><i class="fa fa-music"
+                                aria-hidden="true"></i>&nbsp;&nbsp;发现音乐</p>
+                        <p id="self_fm" class="listchoice self_fm"><i class="fa fa-bullseye"
+                                aria-hidden="true"></i>&nbsp;&nbsp;私人FM</p>
+                        <p id="video" class="listchoice video"><i class="fa fa-youtube-play"
+                                aria-hidden="true"></i>&nbsp;&nbsp;视频</p>
+                        <p id="friends" class="listchoice friends"><i class="fa fa-user-plus"
+                                aria-hidden="true"></i>&nbsp;&nbsp;朋友</p>
+                    </div>
+                </div>
+
+                <div class="lineblocks" id="lineblock2">
+                    <p class="sideline_title">我的音乐</p>
+                    <div id="block2" class="blocks">
+                        <p id="bd_music" class="listchoice bd_music"><i class="fa fa-music"
+                                aria-hidden="true"></i>&nbsp;&nbsp;本地音乐</p>
+                        <p id="download" class="listchoice download"><i class="fa fa-download"
+                                aria-hidden="true"></i>&nbsp;&nbsp;下载管理</p>
+                        <p id="my_fm" class="listchoice my_fm"><i class="fa fa-bullseye"
+                                aria-hidden="true"></i>&nbsp;&nbsp;我的电台</p>
+                    </div>
+                </div>
+
+                <div class="lineblocks" id="lineblock3">
+                    <p class="sideline_title">创建的歌单
+                        <span class="title_groups">
+                            <a href="javascript:void(0);" class="listchoice addlist" id="addList"><i
+                                    class="fa fa-plus-circle" aria-hidden="true"></i></a>
+                            <a href="javascript:void(0);" class="listchoice unfoldlist" id="hideblock_creat"><i
+                                    class="fa fa-angle-down" aria-hidden="true"></i></a>
+                        </span>
+                    </p>
+                    <div id="block3" class="blocks">
+                        <p id="myfavorite_music" class="listchoice myf_music"><i class="fa fa-heart-o"
+                                aria-hidden="true"></i>&nbsp;&nbsp;我喜欢的音乐</p>
+                    </div>
+                </div>
+                <div class="lineblocks" id="lineblock4">
+                    <p class="sideline_title">收藏的歌单
+                        <span class="title_groups">
+                            <a href="javascript:void(0);" class="listchoice unfoldlist" id="hideblock_collect"><i
+                                    class="fa fa-angle-down" aria-hidden="true"></i></a>
+                        </span>
+                    </p>
+                    <div id="block4" class="blocks">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="intro">
+            <div id="zx" style="width: 100%;">
+                <div id="demo" class="carousel slide" data-ride="carousel" id="experience">
+                    <!-- 轮播图片 -->
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img
+                                src="http://p1.music.126.net/EME4L6aKVYYbZGp4mzu0jA==/109951164535626001.jpg?imageView&quality=89">
+                            <div class="carousel-caption">
+                                <h3>第一张图片描述标题</h3>
+                                <p>描述文字!</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img
+                                src="http://p1.music.126.net/qGr_MRYkrUwOs1gL7EAy8A==/109951164535889278.jpg?imageView&quality=89">
+                            <div class="carousel-caption">
+                                <h3>第二张图片描述标题</h3>
+                                <p>描述文字!</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img
+                                src="http://p1.music.126.net/EAXRTSqOFBs7e7vokO6KMA==/109951164535591363.jpg?imageView&quality=89">
+                            <div class="carousel-caption">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 左右切换按钮 -->
+                    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#demo" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </a>
+                </div>
+                <div class="intro1">
+                    <div style="border-style: groove;border-bottom-style: none;">
+                        <div id="Tohot">
+                        <div class="hotIntro">
+                            <div id="hot">
+                                <div style="margin-top: 4px;"><img
+                                        src="https://s1.music.126.net/style/favicon.ico?v20180823">
+                                    &ensp;
+                                </div>
+                                <div style="font-size: 24px;margin-top: 3px; flex-basis: 20%;">热门推荐</div>
+                                <div id="box1">华语&ensp;|&ensp;流行&ensp;|&ensp;摇滚&ensp;|&ensp;民谣&ensp;|&ensp;电子</div>
+                                <div id="box2">更多&gt;&gt;</div>
+                                <div id="Insong">
+                                    <hr color="red">
+                                    <div id="gedan">
+                                        <img
+                                            src="http://p2.music.126.net/07qyx8VNudVBqL8aAGCMRw==/109951164532179060.jpg?param=140y140">
+                                        <br>
+                                        <a title="冬夜酒馆营业中 | 这么冷，不听点暖暖的吗" href="/playlist?id=3106585298">222</a>
+                                    </div>
+                                    <div id="gedan">
+                                        <img
+                                            src="http://p2.music.126.net/07qyx8VNudVBqL8aAGCMRw==/109951164532179060.jpg?param=140y140">
+                                        <br>
+                                        <a title="冬夜酒馆营业中 | 这么冷，不听点暖暖的吗" href="/playlist?id=3106585298">222</a>
+                                    </div>
+                                    <div id="gedan">
+                                        <img
+                                            src="http://p2.music.126.net/07qyx8VNudVBqL8aAGCMRw==/109951164532179060.jpg?param=140y140">
+                                        <br>
+                                        <a title="冬夜酒馆营业中 | 这么冷，不听点暖暖的吗" href="/playlist?id=3106585298">222</a>
+                                    </div>
+                                    <div id="gedan">
+                                        <img
+                                            src="http://p2.music.126.net/07qyx8VNudVBqL8aAGCMRw==/109951164532179060.jpg?param=140y140">
+                                        <br>
+                                        <a title="冬夜酒馆营业中 | 这么冷，不听点暖暖的吗" href="/playlist?id=3106585298">222</a>
+                                    </div>
+                                    <div id="gedan">
+                                        <img
+                                            src="http://p2.music.126.net/07qyx8VNudVBqL8aAGCMRw==/109951164532179060.jpg?param=140y140">
+                                        <br>
+                                        <a title="冬夜酒馆营业中 | 这么冷，不听点暖暖的吗" href="/playlist?id=3106585298">222</a>
+                                    </div>
+                                    <div id="gedan">
+                                        <img
+                                            src="http://p2.music.126.net/07qyx8VNudVBqL8aAGCMRw==/109951164532179060.jpg?param=140y140">
+                                        <br>
+                                        <a title="冬夜酒馆营业中 | 这么冷，不听点暖暖的吗" href="/playlist?id=3106585298">222</a>
+                                    </div>
+                                    <div id="gedan">
+                                        <img
+                                            src="http://p2.music.126.net/07qyx8VNudVBqL8aAGCMRw==/109951164532179060.jpg?param=140y140">
+                                        <br>
+                                        <a title="冬夜酒馆营业中 | 这么冷，不听点暖暖的吗" href="/playlist?id=3106585298">222</a>
+                                    </div>
+                                    <div id="gedan">
+                                        <img
+                                            src="http://p2.music.126.net/07qyx8VNudVBqL8aAGCMRw==/109951164532179060.jpg?param=140y140">
+                                        <br>
+                                        <a title="冬夜酒馆营业中 | 这么冷，不听点暖暖的吗" href="/playlist?id=3106585298">222</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div></div>
+                        <br><br>
+                        <div class="hotIntro">
+                            <div id="hot">
+                                <div style="margin-top: 4px;"><img
+                                        src="https://s1.music.126.net/style/favicon.ico?v20180823">
+                                    &ensp;
+                                </div>
+                                <div style="font-size: 24px;margin-top: 3px; flex-basis: 82%">&ensp;新碟上架</div>
+                                <div id="box2">&ensp;&ensp;更多&gt;&gt;</div>
+                                <hr>
+                                <div id="Insong">
+                                    <hr color="red">
+
+                                    <div class="hbox2">
+                                        <p>第二种图片轮播：无缝轮播</p>
+                                        <ul class="picBox2">
+                                            <li><img
+                                                    src="http://p2.music.126.net/07qyx8VNudVBqL8aAGCMRw==/109951164532179060.jpg?param=140y140" />
+                                            </li>
+                                            <li><img
+                                                    src="http://p2.music.126.net/07qyx8VNudVBqL8aAGCMRw==/109951164532179060.jpg?param=140y140" />
+                                            </li>
+                                            <li><img
+                                                    src="http://p2.music.126.net/07qyx8VNudVBqL8aAGCMRw==/109951164532179060.jpg?param=140y140" />
+                                            </li>
+                                            <li><img
+                                                    src="http://p2.music.126.net/07qyx8VNudVBqL8aAGCMRw==/109951164532179060.jpg?param=140y140" />
+                                            </li>
+                                            <li><img
+                                                    src="http://p2.music.126.net/07qyx8VNudVBqL8aAGCMRw==/109951164532179060.jpg?param=140y140" />
+                                            </li>
+                                            <li><img
+                                                    src="http://p2.music.126.net/07qyx8VNudVBqL8aAGCMRw==/109951164532179060.jpg?param=140y140" />
+                                            </li>
+                                            <li><img
+                                                    src="http://p2.music.126.net/07qyx8VNudVBqL8aAGCMRw==/109951164532179060.jpg?param=140y140" />
+                                            </li>
+                                            <li><img
+                                                    src="http://p2.music.126.net/07qyx8VNudVBqL8aAGCMRw==/109951164532179060.jpg?param=140y140" />
+                                            </li>
+                                            <li><img
+                                                    src="http://p2.music.126.net/07qyx8VNudVBqL8aAGCMRw==/109951164532179060.jpg?param=140y140" />
+                                            </li>
+                                            <li><img
+                                                    src="http://p2.music.126.net/07qyx8VNudVBqL8aAGCMRw==/109951164532179060.jpg?param=140y140" />
+                                            </li>
+                                            <li><img
+                                                    src="http://p2.music.126.net/07qyx8VNudVBqL8aAGCMRw==/109951164532179060.jpg?param=140y140" />
+                                            </li>
+                                            <li><img
+                                                    src="http://p2.music.126.net/07qyx8VNudVBqL8aAGCMRw==/109951164532179060.jpg?param=140y140" />
+                                            </li>
+                                            <li><img
+                                                    src="http://p2.music.126.net/07qyx8VNudVBqL8aAGCMRw==/109951164532179060.jpg?param=140y140" />
+                                            </li>
+                                            <li><img
+                                                    src="http://p2.music.126.net/07qyx8VNudVBqL8aAGCMRw==/109951164532179060.jpg?param=140y140" />
+                                            </li>
+                                            <li><img
+                                                    src="http://p2.music.126.net/07qyx8VNudVBqL8aAGCMRw==/109951164532179060.jpg?param=140y140" />
+                                            </li>
+                                            <li><img
+                                                    src="http://p2.music.126.net/07qyx8VNudVBqL8aAGCMRw==/109951164532179060.jpg?param=140y140" />
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slidebar">
+                        <div style="flex-basis: 100%;height: auto;background-color:white;">
+                            <p>欢迎使用123456</p>
+                            <button style="color: red;">用户登录</button>
+                        </div>
+                        <div
+                            style="font-size: 12px;font-weight: bolder;margin-top: 14px;flex-basis: 90%;margin-left: 5%;">
+                            入驻歌手&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+                            <span style="color: gray;font-weight: normal;">查看全部&gt;</span>
+                            <hr>
+                        </div>
+                        <div id="sbox"><img
+                                src="http://p1.music.126.net/p9U80ex1B1ciPFa125xV5A==/5931865232210340.jpg?param=62y62">
+                            张惠妹</div>
+                        <div id="sbox"><img
+                                src="http://p1.music.126.net/p9U80ex1B1ciPFa125xV5A==/5931865232210340.jpg?param=62y62">
+                            <span>张惠妹</span></div>
+                        <div id="sbox"><img
+                                src="http://p1.music.126.net/p9U80ex1B1ciPFa125xV5A==/5931865232210340.jpg?param=62y62">
+                            <span>张惠妹</span></div>
+                        <div id="sbox"><img
+                                src="http://p1.music.126.net/p9U80ex1B1ciPFa125xV5A==/5931865232210340.jpg?param=62y62">
+                            <span>张惠妹</span></div>
+                            <div id="sbox"><img
+                                src="http://p1.music.126.net/p9U80ex1B1ciPFa125xV5A==/5931865232210340.jpg?param=62y62">
+                            <span>张惠妹</span></div>
+                            <div id="sbox"><img
+                                src="http://p1.music.126.net/p9U80ex1B1ciPFa125xV5A==/5931865232210340.jpg?param=62y62">
+                            <span>张惠妹</span></div>
+                            <div id="sbox"><img
+                                src="http://p1.music.126.net/p9U80ex1B1ciPFa125xV5A==/5931865232210340.jpg?param=62y62">
+                            <span>张惠妹</span></div>
+                        <div style="margin-left: 10%;"><button>申请成为网易音乐人</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="boxr">
+            <!--回顶部或者底部按钮-->
+            <div class="goTo">
+                <p><button class="toTop">回到顶部</button></p>
+                <p><button class="toBottom">回到底部</button></p>
+            </div>
+        </div>
+    </div>      
+    <footer class="app-footer" style="margin-left: 0;">
+            <div>
+              <span>&copy; 2018级 网络空间安全学院</span>
+            </div>
+            <div class="ml-auto">
+              <span>Powered by刘育小组</span>
+            </div>
+          </footer>
+
+        <script>
+            $(function () {
+                // <!--回到顶部-->
+                $(".toTop").click(function () {
+                    // < !--此处加入finish防止多次点击回顶部或者回底部多次触发动画的bug也可以使用stop()来替换finish()-- >
+                    $("html,body").finish().animate({ "scrollTop": "0px" }, 500);
+                });
+
+                // <!--回到底部-->
+                $(".toBottom").click(function () {
+                    $("html,body").finish().animate({ "scrollTop": $("footer").offset().top }, 500);
+                });
+            });
+        </script>
+</body>
+
+</html>

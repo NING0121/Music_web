@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <base href="./">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>NING Music Player</title>
+  <link href="node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+  <link href="../css/play-list-style.css" type="text/css" rel="stylesheet">
+  <script src="../js/playlist.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics-->
+  <script></script>
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
+<style>
+    .sidebar .sidebar-nav a:hover {
+      background-color: #a40011;
+    }
+  </style>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    // Shared ID
+    gtag('config', 'UA-118965717-3');
+    // Bootstrap ID
+    gtag('config', 'UA-118965717-5');
+  </script>
+</head>
+
+
+<body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
+
+
+<!--------------------------------------------鼠标点击动画----------------------------------------------------------------------->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mo-js/0.288.2/mo.min.js'></script>
+    <script src="../js/clickstyle.js"></script>
+<!--------------------------------------------鼠标点击动画----------------------------------------------------------------------->
+    
+
+
+  <header class="app-header navbar" style="background-color:#333;">
+    <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">
+      <img class="navbar-brand-full" src="https://images.unsplash.com/photo-1496200186974-4293800e2c20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80" width="80" height="50" alt="net Logo">
+      <img class="navbar-brand-minimized" src="" width="30" height="30" alt="net Logo">
+    </a>
+    <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <ul class="nav navbar-nav d-md-down-none">
+      <li class="nav-item px-3">
+        <a class="nav-link" href="http://localhost:3000">首页</a>
+      </li>
+      <li class="nav-item px-3">
+        <a class="nav-link" href="#">个人用户</a>
+      </li>
+      <li class="nav-item px-3">
+        <a class="nav-link" href="http://localhost:3000/html/playlist.html">音乐库</a>
+      </li>
+    </ul> 
+    <form onsubmit="event.preventDefault();" role="search" id="searchform" style="margin-left: 500px;">
+        <input id="search" type="search" placeholder="Search..." autofocus required />
+        <button type="submit" id="searchbutton">Go</button>    
+      </form>
+
+    <ul class="nav navbar-nav ml-auto">
+      <li class="nav-item d-md-down-none">
+        <a class="nav-link" href="javascript:void(0);">
+          <i class="icon-bell" id="user_login">登录</i>
+          <span class="glyphicon glyphicon-user"></span>
+        </a>
+      </li>
+      <li class="nav-item d-md-down-none">
+        <a class="nav-link" href="#">
+          <i class="icon-bell">消息</i>
+          <span class="badge badge-pill badge-danger">5</span>
+        </a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          <img class="img-avatar" src="../images/netease_cloudmusic_180px_1186871_easyicon.net.png" alt="">
+        </a>
+      </li>
+    </ul>
+    <button class="navbar-toggler aside-menu-toggler d-md-down-none" type="button" data-toggle="aside-menu-lg-show">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <button class="navbar-toggler aside-menu-toggler d-lg-none" type="button" data-toggle="aside-menu-show">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </header>
+  <div class="app-body">
+    <div class="sidebar">
+      <nav class="sidebar-nav">
+        <ul class="nav" style="background-color:#C20C0C;">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <i class="nav-icon icon-speedometer"></i> 歌单✉️
+              <span class="badge badge-primary">NEW</span>
+            </a>
+          </li>
+          <li class="nav-title">相关</li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="nav-icon icon-drop"></i> 歌手👩</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="nav-icon icon-pencil"></i> 歌曲🎤</a>
+          </li>
+          <li class="nav-title">其他</li>
+          <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#">
+              <i class="nav-icon icon-puzzle"></i> 喜欢的人❤️</a>
+            <ul class="nav-dropdown-items">
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="nav-icon icon-puzzle"></i> B</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="nav-icon icon-puzzle"></i> C</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="nav-icon icon-puzzle"></i> D</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="nav-icon icon-calculator"></i> 热门评论💬
+              <span class="badge badge-primary">HOT</span>
+            </a>
+          </li>
+          <li class="divider"></li>
+          <li class="nav-title">其他</li>
+          <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#">
+              <i class="nav-icon icon-star"></i> 其他</a>
+            <ul class="nav-dropdown-items">
+              <li class="nav-item">
+                <a class="nav-link" href="#" target="_top">
+                  <i class="nav-icon icon-star"></i> 其他</a>
+              </li>
+          </li>
+        </ul>
+
+        </li>
+        <li class="nav-item mt-auto">
+          <a class="nav-link nav-link-success" href="#" target="_top">
+            <i class="nav-icon icon-cloud-download"></i>Learn More</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-link-danger" href="#" target="_top">
+            <i class="nav-icon icon-layers"></i> Try Player
+          </a>
+        </li>
+      </nav>
+      <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+    </div>
+
+    <main class="main">
+      <!-- Breadcrumb-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">首页</li>
+        <li class="breadcrumb-item">
+          <a href="#">歌单</a>
+        </li>
+      </ol>
+      <div class="container-fluid">
+        <div class="animated fadeIn">
+          <div class="row">
+            <div class="col-sm-6 col-lg-3">
+              <div class="card text-white"
+                style="background-image:url('https://images.unsplash.com/photo-1515405295579-ba7b45403062?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80'); background-position:'center';background-size:'cover'; background-repeat:'no-repeat';">
+                <div class="card-body pb-0">
+                  <div class="btn-group float-right">
+                    <button class="btn btn-transparent dropdown-toggle p-0" type="button" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">
+                      <i class="icon-settings"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                      <a class="dropdown-item" href="#">了解详情</a>
+                      <a class="dropdown-item" href="#">收藏</a>
+
+                    </div>
+                  </div>
+                  <div class="text-value"><a id="board_newsongs" style="color: white; text-decoration:none;"
+                      href="javascript:void(0)">新歌榜单</a></div>
+                  <div>Members online</div>
+                </div>
+                <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
+                  <canvas class="chart" id="card-chart1" height="70"></canvas>
+                </div>
+              </div>
+            </div>
+            <!-- /.col-->
+            <div class="col-sm-6 col-lg-3">
+              <div class="card text-white"
+                style="background-image:url('https://images.unsplash.com/photo-1547891654-e66ed7ebb968?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80'); background-position:'center';background-size:'cover'; background-repeat:'no-repeat';">
+                <div class="card-body pb-0">
+                  <div class="btn-group float-right">
+                    <button class="btn btn-transparent dropdown-toggle p-0" type="button" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">
+                      <i class="icon-settings"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                      <a class="dropdown-item" href="#">了解详情</a>
+                      <a class="dropdown-item" href="#">收藏</a>
+
+                    </div>
+                  </div>
+                  <div class="text-value"><a id="board_Billboard" style="color: white; text-decoration:none;"
+                    href="javascript:void(0)">Billboard周榜</a></div>
+                  <div>Members online</div>
+                </div>
+                <div class="chart-wrapper mt-3" style="height:70px;">
+                  <canvas class="chart" id="card-chart3" height="70"></canvas>
+                </div>
+              </div>
+            </div>
+            <!-- /.col-->
+            <div class="col-sm-6 col-lg-3">
+              <div class="card text-white " 
+                style="background-image:url('https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1115&q=80'); background-position:'center';background-size:'cover'; background-repeat:'no-repeat';">
+                <div class="card-body pb-0">
+                  <div class="btn-group float-right">
+                    <button class="btn btn-transparent dropdown-toggle p-0" type="button" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">
+                      <i class="icon-settings"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                      <a class="dropdown-item" href="#">了解详情</a>
+                      <a class="dropdown-item" href="#">收藏</a>
+
+                    </div>
+                  </div>
+                  <div class="text-value"><a id="board_hotsongs" style="color: white; text-decoration:none;"
+                    href="javascript:void(0)">热门榜单</a></div>
+                  <div>Members online</div>
+                </div>
+                <div class="chart-wrapper mt-3" style="height:70px;">
+                  <canvas class="chart" id="card-chart3" height="70"></canvas>
+                </div>
+              </div>
+            </div>
+            <!-- /.col-->
+            <div class="col-sm-6 col-lg-3">
+              <!--bg-danger属性    颜色不可更改-->
+              <div class="card text-white" 
+                style="background-image:url('https://images.unsplash.com/photo-1568550469376-dcf64dbaabb9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80'); background-position:'center';background-size:'cover'; background-repeat:'no-repeat';">
+                <div class="card-body pb-0">
+                  <div class="btn-group float-right">
+                    <button class="btn btn-transparent dropdown-toggle p-0" type="button" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">
+                      <i class="icon-settings"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                      <a class="dropdown-item" href="#">了解详情</a>
+                      <a class="dropdown-item" href="#">收藏</a>
+
+                    </div>
+                  </div>
+                  <div class="text-value"><a id="board_iTunes" style="color: white; text-decoration:none;"
+                    href="javascript:void(0)">iTunes榜单</a></div>
+                  <div>Members online</div>
+                </div>
+                <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
+                  <canvas class="chart" id="card-chart4" height="70"></canvas>
+                </div>
+              </div>
+            </div>
+            <!-- /.col-->
+          </div>
+          <!-- /.row-->
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-5">
+                  <h4 class="card-title mb-0">推荐歌单</h4>
+                  <div class="small text-muted">December 2019</div>
+                </div>
+              </div>
+              <!-- /.row-->
+
+              <div id="demo" class="carousel slide" data-ride="carousel">
+
+                <!-- 指示符 -->
+                <ul class="carousel-indicators">
+                  <li data-target="#demo" data-slide-to="0" class="active"></li>
+                  <li data-target="#demo" data-slide-to="1"></li>
+                  <li data-target="#demo" data-slide-to="2"></li>
+                </ul>
+
+                <!-- 轮播图片 -->
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img
+                      src="https://images.unsplash.com/photo-1466838931486-92f3b5ff31a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1187&q=80"
+                      height=auto class="img-rounded image-responsive" style="border-radius:'25%';">
+                    <div class="carousel-caption">
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      src="https://images.unsplash.com/photo-1438417625174-4f3589408f13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1192&q=80"
+                      height=auto class="img-rounded image-responsive" style="border-radius:'25%';">
+                    <div class="carousel-caption">
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      src="https://images.unsplash.com/photo-1485591926658-da9e25c13893?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1187&q=80"
+                      height=auto class="img-rounded image-responsive" style="border-radius:'25%';">
+                    <div class="carousel-caption">  
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 左右切换按钮 -->
+                <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                  <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a class="carousel-control-next" href="#demo" data-slide="next">
+                  <span class="carousel-control-next-icon"></span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="row text-center">
+              <div class="col-sm-12 col-md mb-sm-2 mb-0">
+                <div class="text-muted">摇滚</div>
+                <strong>29.703 views (40%)</strong>
+                <div class="progress progress-xs mt-2">
+                  <div class="progress-bar bg-success" role="progressbar" style="width: 40%" aria-valuenow="40"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md mb-sm-2 mb-0">
+                <div class="text-muted">嘻哈</div>
+                <strong>24.093 views (20%)</strong>
+                <div class="progress progress-xs mt-2">
+                  <div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="20"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md mb-sm-2 mb-0">
+                <div class="text-muted">流行</div>
+                <strong>78.706 views (60%)</strong>
+                <div class="progress progress-xs mt-2">
+                  <div class="progress-bar bg-warning" role="progressbar" style="width: 60%" aria-valuenow="60"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md mb-sm-2 mb-0">
+                <div class="text-muted">爵士</div>
+                <strong>22.123 views (80%)</strong>
+                <div class="progress progress-xs mt-2">
+                  <div class="progress-bar bg-danger" role="progressbar" style="width: 80%" aria-valuenow="80"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md mb-sm-2 mb-0">
+                <div class="text-muted">蓝调</div>
+                <strong>24.123 views (40%)</strong>
+                <div class="progress progress-xs mt-2">
+                  <div class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0"
+                    aria-valuemax="100"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.card-->
+        <div class="row">
+          <div class="col-sm-6 col-lg-3">
+            <div class="brand-card">
+              <div class="brand-card-header bg-facebook">
+                <i class="fa fa-facebook"></i>
+                <div class="chart-wrapper" style="background-image: url('https://source.unsplash.com/random');">
+                  <canvas id="social-box-chart-1" height="90"></canvas>
+                </div>
+              </div>
+              <div class="brand-card-body">
+                <div>
+                  <div class="text-value">89.2k</div>
+                  <div class="text-uppercase text-muted small">收藏人数</div>
+                </div>
+                <div>
+                  <div class="text-value">34</div>
+                  <div class="text-uppercase text-muted small">歌曲数目</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.col-->
+          <div class="col-sm-6 col-lg-3">
+            <div class="brand-card">
+              <div class="brand-card-header bg-twitter">
+                <i class="fa fa-twitter"></i>
+                <div class="chart-wrapper" style="background-image: url('https://source.unsplash.com/1600x900/?animals');">
+                  <canvas id="social-box-chart-2" height="90"></canvas>
+                </div>
+              </div>
+              <div class="brand-card-body">
+                <div>
+                  <div class="text-value">973k</div>
+                  <div class="text-uppercase text-muted small">收藏人数</div>
+                </div>
+                <div>
+                  <div class="text-value">1.792</div>
+                  <div class="text-uppercase text-muted small">歌曲数目</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.col-->
+          <div class="col-sm-6 col-lg-3">
+            <div class="brand-card">
+              <div class="brand-card-header bg-linkedin">
+                <i class="fa fa-linkedin"></i>
+                <div class="chart-wrapper" style="background-image: url('https://source.unsplash.com/1600x900/?nature');">
+                  <canvas id="social-box-chart-3" height="90"></canvas>
+                </div>
+              </div>
+              <div class="brand-card-body">
+                <div>
+                  <div class="text-value">500+</div>
+                  <div class="text-uppercase text-muted small">收藏人数</div>
+                </div>
+                <div>
+                  <div class="text-value">292</div>
+                  <div class="text-uppercase text-muted small">歌曲数目</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.col-->
+          <div class="col-sm-6 col-lg-3">
+            <div class="brand-card">
+              <div class="brand-card-header bg-google-plus">
+                <i class="fa fa-google-plus"></i>
+                <div class="chart-wrapper" style="background-image: url('https://source.unsplash.com/1920x1080/?beautiful');">
+                  <canvas id="social-box-chart-4" height="90"></canvas>
+                </div>
+              </div>
+              <div class="brand-card-body">
+                <div>
+                  <div class="text-value">894</div>
+                  <div class="text-uppercase text-muted small">收藏人数</div>
+                </div>
+                <div>
+                  <div class="text-value">92</div>
+                  <div class="text-uppercase text-muted small">歌曲</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.col-->
+        </div>
+        <!-- /.row-->
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <table class="table table-responsive-sm table-hover table-outline mb-0">
+                <thead class="thead-light">
+                  <tr>
+                    <th class="text-center">
+                      <i class="icon-people"></i>
+                    </th>
+                    <th>歌曲 🎤/歌手 👨</th>
+                    <th class="text-center"></th>
+                    <th>标签 🏷️</th>
+                    <th class="text-center" style="padding-right:150px;">专辑 💽</th>
+                    <th>时长 ⌚️</th>
+                  </tr>
+                </thead>
+                <tbody id="Newsongs_body">
+                  <!-- required songs -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <!-- /.col-->
+      </div>
+      <!-- /.row-->
+  </div>
+  </div>
+  </main>
+  <footer class="app-footer">
+    <div>
+      <a href="首页.html">Music-scu</a>
+      <span>&copy; 2018级 网络空间安全学院</span>
+    </div>
+    <div class="ml-auto">
+      <span>Powered by</span>
+      <a href="首页.html">刘育小组</a>
+    </div>
+  </footer>
+
+
+
+  <!----------------------------------------------------------------登录------------------------------------------------>
+
+
+<div id="login1" class="login" >
+    <div id="login_title" class="login-title"><h1>Log in</h1>
+        <span><a id="closeBtn" href="javascript:void(0);" class="close-login">关闭</a></span>
+    </div>
+    <div class="login-input-content">
+        <div class="login-input">
+            <label>Username：</label>
+            <input type="text" placeholder="Username..." name="info[username]" id="username" class="list-input">
+        </div>
+        <div class="login-input">
+            <label>Password：</label>
+            <input type="password" placeholder="Password..." name="info[password]" id="password" class="list-input">
+        </div>
+    </div>
+    <div id="loginBtn" class="login-button"><a href="javascript:void(0);" id="login-button-submit"><span>Log in</span></a></div>
+</div>
+<!-- 遮盖层 -->
+<div id="bg" class="login-bg" ></div>   
+
+<script>
+    // 显示登录框和遮盖层
+    var login = document.getElementById('login1');
+    var bg = document.getElementById('bg');
+    //1 点击按钮，弹出登录框和遮盖层
+    var link = document.getElementById('user_login');
+    link.onclick = function () {
+      login.style.display = 'block';
+       bg.style.display = 'block';
+      return false;
+    }
+  
+    // 2 点击关闭按钮，隐藏 登录框和遮盖层
+    var closeBtn = document.getElementById('closeBtn');
+    closeBtn.onclick = function () {
+      // 隐藏 登录框和遮盖层
+      login.style.display = 'none';
+      bg.style.display = 'none';
+    }
+  
+    // 3 拖拽
+    var title = document.getElementById('login_title');
+    title.onmousedown = function (e) {
+      // 鼠标按下，求鼠标在盒子中的位置
+      var x = e.pageX - login.offsetLeft;
+      var y = e.pageY - login.offsetTop;
+  
+      document.onmousemove = function (e) {
+        // 鼠标移动的时候， 盒子的坐标
+        var loginX = e.pageX - x;
+        var loginY = e.pageY - y;
+  
+        login.style.left = loginX + 256 + 'px';
+        login.style.top = loginY - 140 + 'px';
+      }
+    }
+  
+    document.onmouseup = function () {
+      // 移除鼠标移动的事件
+      document.onmousemove = null;
+    }
+  </script>
+</body>
+
+</html>
